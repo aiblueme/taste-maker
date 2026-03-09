@@ -6,7 +6,7 @@ port: 8989
 stack: Next.js 16, node:20-alpine, SQLite, Gemini 1.5 Flash, SWAG
 standards_version: "2.0"
 security: done
-ux_ui: not_started
+ux_ui: done
 repo_cleanup: done
 readme: done
 last_session: "2026-03-09"
@@ -27,9 +27,13 @@ Agent: Claude Code
 - Initialized git repo on main branch
 - Created this harness file
 
+### Completed (continued)
+- UX/UI review done — design is clean, no anti-patterns, no broken images/links
+- Added Open Graph tags (og:title, og:description, og:url, og:type) to layout.tsx
+
 ### Incomplete
-- UX/UI review not started
-- Docker build not verified (no live container checked — build context fix is logic-only)
+- Docker build not verified (no live container — build context fix is logic-only)
+- Cannot push to GitHub — no remote configured (BLOCKER)
 
 ### Blocked — Needs Matt
 - **[BLOCKER]** No GitHub remote configured. Project has no git remote. Matt needs to create the GitHub repo and set the remote: `git remote add origin https://github.com/USERNAME/taste-maker.git && git push -u origin main`
@@ -41,8 +45,10 @@ Agent: Claude Code
 - [P2] Verify container name change (`taste-journal` → `taste-maker`) doesn't break any existing running container on vps2
 - [P3] `node_modules` committed to build context previously (no .dockerignore). Dockerfile multi-stage build handles this but .dockerignore fix reduces build time
 - [P3] External script pinning — `@google/generative-ai: ^0.24.1` uses caret range; could pin to exact version for reproducibility
-- [P3] Open Graph tags missing from layout.tsx (og:url, og:image not set — only title and description are)
+- [P3] og:image not set (would need a static social card image)
 - [P3] Favicon is Next.js default — low priority cosmetic
+- [P3] `src/components/SwissGrid.tsx` exists but is not imported anywhere — unused dead code
+- [P3] `public/` contains boilerplate create-next-app SVGs (file.svg, globe.svg, next.svg, vercel.svg, window.svg) — not referenced anywhere, safe to delete
 
 ## Done
 - [x] Create `.dockerignore` — 2026-03-09
@@ -53,6 +59,8 @@ Agent: Claude Code
 - [x] Update `.gitignore` with `.env.*` catch-all — 2026-03-09
 - [x] Replace boilerplate README — 2026-03-09
 - [x] Security audit — no hardcoded secrets, no .env committed, non-root user in Dockerfile — 2026-03-09
+- [x] UX/UI review — no anti-patterns, good design, responsive layout, proper headings — 2026-03-09
+- [x] Add Open Graph tags to layout.tsx — 2026-03-09 — commit 22712fe
 
 ## Decisions Log
 

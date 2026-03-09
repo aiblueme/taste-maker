@@ -9,7 +9,7 @@ security: done
 ux_ui: done
 repo_cleanup: done
 readme: done
-last_session: "2026-03-09"
+last_session: "2026-03-10"
 has_blockers: false
 ---
 
@@ -43,14 +43,15 @@ Agent: Claude Code
 
 - [P2] UX/UI review — page uses `slate-50` cool gray background instead of bone/cream (#F5F0E8); technically deviates from design identity but functional. Document vs. fix is Matt's call — do not force-retrofit
 - [P2] Verify container name change (`taste-journal` → `taste-maker`) doesn't break any existing running container on vps2
-- [P3] `node_modules` committed to build context previously (no .dockerignore). Dockerfile multi-stage build handles this but .dockerignore fix reduces build time
 - [P3] External script pinning — `@google/generative-ai: ^0.24.1` uses caret range; could pin to exact version for reproducibility
 - [P3] og:image not set (would need a static social card image)
 - [P3] Favicon is Next.js default — low priority cosmetic
-- [P3] `src/components/SwissGrid.tsx` exists but is not imported anywhere — unused dead code
-- [P3] `public/` contains boilerplate create-next-app SVGs (file.svg, globe.svg, next.svg, vercel.svg, window.svg) — not referenced anywhere, safe to delete
 
 ## Done
+- [x] Add MIT LICENSE — 2026-03-10 — commit a0741cf
+- [x] Delete src/components/SwissGrid.tsx (unused dead code) — 2026-03-10 — commit 22c596e
+- [x] Delete public/ boilerplate SVGs (file.svg, globe.svg, next.svg, vercel.svg, window.svg) — 2026-03-10 — commit 22c596e
+- [x] Commit full project source to GitHub (was untracked) — 2026-03-10 — commit 22c596e
 - [x] Create `.dockerignore` — 2026-03-09
 - [x] Add SWAG labels to docker-compose.yml — 2026-03-09
 - [x] Add `swag-network` to docker-compose.yml — 2026-03-09

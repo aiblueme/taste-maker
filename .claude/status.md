@@ -10,7 +10,7 @@ ux_ui: done
 repo_cleanup: done
 readme: done
 last_session: "2026-03-09"
-has_blockers: true
+has_blockers: false
 ---
 
 # Project Status — taste-maker
@@ -36,7 +36,7 @@ Agent: Claude Code
 - Cannot push to GitHub — no remote configured (BLOCKER)
 
 ### Blocked — Needs Matt
-- **[BLOCKER]** No GitHub remote configured. Project has no git remote. Matt needs to create the GitHub repo and set the remote: `git remote add origin https://github.com/USERNAME/taste-maker.git && git push -u origin main`
+- ~~[BLOCKER] No GitHub remote~~ — resolved. Repo: https://github.com/aiblueme/taste-maker
 - SWAG labels added with subdomain `taste-maker.shellnode.lol` — verify this is the intended subdomain (the project was previously named `taste-journal` internally; confirm Matt wants `taste-maker` not `taste-journal`)
 
 ## Backlog

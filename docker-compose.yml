@@ -1,0 +1,41 @@
+services:
+  taste-maker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: taste-maker
+    ports:
+      - "8989:8989"
+    environment:
+      - NODE_ENV=production
+      - PORT=8989
+      - DB_PATH=/app/data/sqlite.db
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - taste-maker-data:/app/data
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+    networks:
+      - swag-network
+    labels:
+      - "swag=enable"
+      - "swag_address=taste-maker"
+      - "swag_port=8989"
+      - "swag_url=taste-maker.shellnode.lol"
+      - "homepage.instance=my-vps"
+      - "homepage.name=Taste Journal"
+      - "homepage.group=Apps"
+      - "homepage.href=https://taste-maker.shellnode.lol"
+      - "homepage.icon=mdi-food"
+      - "homepage.description=Personal food log and palate analysis"
+
+volumes:
+  taste-maker-data:
+    driver: local
+
+networks:
+  swag-network:
+    external: true

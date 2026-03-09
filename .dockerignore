@@ -1,0 +1,16 @@
+.git
+.github
+.claude
+.gitignore
+README.md
+LICENSE
+*.md
+docker-compose.yml
+.env
+.env.*
+node_modules
+.next
+data
+*.db
+*.db-shm
+*.db-wal

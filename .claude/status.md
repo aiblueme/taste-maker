@@ -40,12 +40,7 @@ Agent: Claude Code
 - SWAG labels added with subdomain `taste-maker.shellnode.lol` — verify this is the intended subdomain (the project was previously named `taste-journal` internally; confirm Matt wants `taste-maker` not `taste-journal`)
 
 ## Backlog
-
-- [P2] UX/UI review — page uses `slate-50` cool gray background instead of bone/cream (#F5F0E8); technically deviates from design identity but functional. Document vs. fix is Matt's call — do not force-retrofit
-- [P2] Verify container name change (`taste-journal` → `taste-maker`) doesn't break any existing running container on vps2
-- [P3] External script pinning — `@google/generative-ai: ^0.24.1` uses caret range; could pin to exact version for reproducibility
 - [P3] og:image not set (would need a static social card image)
-- [P3] Favicon is Next.js default — low priority cosmetic
 
 ## Done
 - [x] Add MIT LICENSE — 2026-03-10 — commit a0741cf
@@ -62,6 +57,9 @@ Agent: Claude Code
 - [x] Security audit — no hardcoded secrets, no .env committed, non-root user in Dockerfile — 2026-03-09
 - [x] UX/UI review — no anti-patterns, good design, responsive layout, proper headings — 2026-03-09
 - [x] Add Open Graph tags to layout.tsx — 2026-03-09 — commit 22712fe
+- [x] Pin @google/generative-ai to exact version 0.24.1 in package.json — 2026-03-10
+- [x] Replace Next.js default favicon with design-system SVG icon (src/app/icon.svg) — 2026-03-10
+- [x] Verify no taste-journal container running on vps2 (confirmed clean) — 2026-03-10
 
 ## Decisions Log
 
@@ -77,4 +75,4 @@ Agent: Claude Code
 - API requires GEMINI_API_KEY env var — set in docker-compose.yml via `${GEMINI_API_KEY}` from host env or a `.env` file on the server (not committed)
 - Data persisted in named Docker volume `taste-maker-data` mounted at `/app/data/sqlite.db`
 - DB schema auto-migrated on startup via `initDb()` in `src/lib/db/index.ts` — no migration files needed
-- Previously the service name was `taste-journal` in docker-compose — if a container by that name exists on vps2, Matt should stop it before deploying under the new name
+- No taste-journal container exists on vps2 — confirmed 2026-03-10, safe to deploy taste-maker
